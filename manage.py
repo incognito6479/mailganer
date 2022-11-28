@@ -3,6 +3,9 @@ import os
 import sys
 
 if __name__ == "__main__":
+    # manually added
+    sys.dont_write_bytecode = True
+    # manually added ended
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mailganer.settings")
     try:
         from django.core.management import execute_from_command_line
