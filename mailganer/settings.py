@@ -126,6 +126,9 @@ STATICFILES_DIRS = [
 ]
 
 
+CELERY_BROKER_URL = 'redis://localhost:6379'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.freesmtpservers.com'
 EMAIL_PORT = 25

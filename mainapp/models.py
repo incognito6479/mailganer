@@ -54,4 +54,4 @@ class SentEmailList(models.Model):
 
     def __str__(self):
         """Unicode representation of SentEmailList."""
-        return "{0} {1}".format(self.display_name, self.template_name)
+        return "{0} {1}".format(self.subscriber, self.template_name)

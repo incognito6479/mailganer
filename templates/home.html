@@ -54,17 +54,9 @@
 							<select data-placeholder="Choose subscribers..." class="chosen-select subscriber_select" 
 							multiple tabindex="4" required name="subscriber_list">
 								<option value="" disabled></option>
-								<option value="United States">United States</option>
-								<option value="United Kingdom">United Kingdom</option>
-								<option value="Afghanistan">Afghanistan</option>
-								<option value="Aland Islands">Aland Islands</option>
-								<option value="Albania">Albania</option>
-								<option value="Algeria">Algeria</option>
-								<option value="American Samoa">American Samoa</option>
-								<option value="Andorra">Andorra</option>
-								<option value="Angola">Angola</option>
-								<option value="Anguilla">Anguilla</option>
-								<option value="Antarctica">Antarctica</option>
+								{% for subscriber in subscribers_list %}
+									<option value="{{ subscriber.id }}">{{ subscriber }}</option>
+								{% endfor %}
 							</select>
 							<br>
 							<small class="subscriber_select_error d-none text-danger">this field is required</small>
@@ -73,11 +65,9 @@
 							<h3>Choose template</h3>
 							<select class="chosen-select template_name" required name="template_name">
 								<option value=""></option>
-								<option value="United States">United States</option>
-								<option value="United Kingdom">United Kingdom</option>
-								<option value="Afghanistan">Afghanistan</option>
-								<option value="Aland Islands">Aland Islands</option>
-								<option value="Albania">Albania</option>
+								{% for template_name in template_names %}
+									<option value="{{ template_name.id }}">{{ template_name }}</option>
+								{% endfor %}
 							</select>
 							<br>
 							<small class="template_name_error d-none text-danger">this field is required</small>
@@ -113,12 +103,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="subscriber_email_sent bg-light">
-							<th scope="row">1</th>
-							<td>b</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-						</tr>
+						{% for sent_list in email_sent_list %}
+							<tr class="subscriber_email_sent bg-light">
+								<th scope="row">{{ forloop.counter }}</th>
+								<td>{{ sent_list.subscriber }}</td>
+								<td>{{ sent_list.date }}</td>
+								<td>{{ sent_list.template_name }}</td>
+							</tr>
+						{% endfor %}
 					</tbody>
 				</table>
 			</div>

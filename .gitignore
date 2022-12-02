@@ -1,1 +1,4 @@
 .venv/
+mailganer/*.pyc
+mainapp/*.pyc
+mainapp/migrations/*.pyc
